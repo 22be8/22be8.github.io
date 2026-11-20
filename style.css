@@ -58,7 +58,21 @@ section { padding: 100px 0; }
 .nav.scrolled { background: rgba(255,255,255,.92); backdrop-filter: blur(12px); padding: 14px 0; box-shadow: 0 6px 30px -12px rgba(0,0,0,.2); }
 .nav .container { display: flex; align-items: center; justify-content: space-between; }
 .logo { font-family: "Playfair Display", serif; font-size: 1.7rem; font-weight: 700; color: #fff; transition: color .35s; }
-.logo span { color: var(--primary); }
+.logo { display: inline-flex; align-items: center; gap: 10px; line-height: 1; }
+.logo-text span { color: var(--primary); }
+.logo-mark {
+  width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px;
+  background: linear-gradient(135deg, #ff8a5c, #e9542f);
+  box-shadow: 0 8px 20px -8px rgba(233,84,47,.8);
+  display: grid; place-items: center;
+  transition: transform .4s var(--ease);
+}
+.logo-mark svg { width: 100%; height: 100%; display: block; }
+.logo:hover .logo-mark { transform: rotate(-8deg) scale(1.06); }
+@media (max-width: 600px) {
+  .logo { font-size: 1.5rem; gap: 8px; }
+  .logo-mark { width: 34px; height: 34px; border-radius: 10px; }
+}
 .nav.scrolled .logo { color: var(--dark); }
 .nav-links { display: flex; gap: 34px; list-style: none; align-items: center; }
 .nav-links a { color: rgba(255,255,255,.9); font-weight: 500; font-size: .95rem; position: relative; transition: color .3s; }
@@ -188,13 +202,14 @@ section { padding: 100px 0; }
 .dest-card:hover .arrow { transform: rotate(-45deg); }
 
 /* ---------- Featured (split) ---------- */
-.featured { background: var(--bg-soft); }
+.featured { background: var(--bg); }
+#why, .tips { background: var(--bg-soft); }
 .split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 70px; align-items: center; }
 .split-media { position: relative; }
 .split-media .main-img { border-radius: var(--radius); height: 540px; width: 100%; object-fit: cover; box-shadow: var(--shadow); background: #2a3d55; }
 .split-media .float-img {
   position: absolute; right: -30px; bottom: -40px; width: 46%; height: 240px; object-fit: cover;
-  border-radius: var(--radius); border: 8px solid var(--bg-soft); box-shadow: var(--shadow); background: #2a3d55;
+  border-radius: var(--radius); border: 8px solid var(--bg); box-shadow: var(--shadow); background: #2a3d55;
 }
 .split-media .float-card {
   position: absolute; top: 30px; left: -30px; background: #fff; border-radius: 16px; padding: 16px 20px;
@@ -293,7 +308,7 @@ section { padding: 100px 0; }
 /* ---------- Footer ---------- */
 footer { background: #0a1322; color: #9aa6ba; padding: 80px 0 30px; }
 .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
-footer .logo { display: inline-block; margin-bottom: 16px; }
+footer .logo { display: inline-flex; margin-bottom: 16px; }
 footer p { font-size: .93rem; max-width: 300px; }
 footer h4 { color: #fff; font-size: 1rem; font-weight: 600; margin-bottom: 18px; }
 footer ul { list-style: none; display: grid; gap: 10px; font-size: .93rem; }
@@ -377,7 +392,104 @@ footer ul a:hover { color: var(--primary); }
   .testi { padding: 28px 24px; }
 }
 
+/* ---------- Best time to visit ---------- */
+.seasons { background: var(--bg-soft); }
+.season-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+.season-tab {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  min-width: 150px; padding: 14px 22px; border-radius: 18px; cursor: pointer;
+  border: 1.5px solid #e3e7ee; background: #fff; color: var(--dark);
+  font: 600 1rem "Poppins", sans-serif; transition: .3s var(--ease);
+}
+.season-tab small { font-weight: 400; font-size: .78rem; color: var(--muted); }
+.season-tab:hover { border-color: var(--primary); transform: translateY(-3px); }
+.season-tab.active { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: 0 14px 30px -12px rgba(255,107,74,.7); }
+.season-tab.active small { color: rgba(255,255,255,.85); }
+.season-panel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.season-panel[hidden] { display: none; }
+.season-panel.active .season-item { animation: fadeUp .6s var(--ease) both; }
+.season-panel.active .season-item:nth-child(2) { animation-delay: .08s; }
+.season-panel.active .season-item:nth-child(3) { animation-delay: .16s; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.season-item {
+  background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: 0 18px 40px -24px rgba(15,27,45,.35);
+  transition: transform .4s var(--ease);
+}
+.season-item:hover { transform: translateY(-6px); }
+.season-item img { width: 100%; height: 190px; object-fit: cover; background: #2a3d55; }
+.season-item > div { padding: 20px 22px 24px; }
+.season-item h4 { font-family: "Playfair Display", serif; font-size: 1.3rem; color: var(--dark); margin-bottom: 6px; }
+.season-item p { color: var(--muted); font-size: .92rem; }
+
+/* ---------- How it works ---------- */
+.steps { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; position: relative; }
+.steps::before {
+  content: ""; position: absolute; top: 58px; left: 12%; right: 12%; height: 2px; z-index: 0;
+  background: repeating-linear-gradient(90deg, #ffc2b3 0 10px, transparent 10px 18px);
+}
+.step { position: relative; z-index: 1; text-align: center; padding: 0 8px; }
+.step-num {
+  font-family: "Playfair Display", serif; font-size: .95rem; font-weight: 700; color: var(--primary);
+  letter-spacing: .1em; margin-bottom: 10px;
+}
+.step-ic {
+  width: 84px; height: 84px; margin: 0 auto 22px; border-radius: 50%; background: #fff;
+  display: grid; place-items: center; font-size: 2rem;
+  box-shadow: 0 16px 36px -14px rgba(15,27,45,.35); border: 6px solid #fff0ec;
+  transition: transform .4s var(--ease), background .4s;
+}
+.step:hover .step-ic { transform: translateY(-6px) scale(1.05); background: #fff0ec; }
+.step h3 { font-family: "Poppins", sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+.step p { color: var(--muted); font-size: .92rem; }
+.steps-cta { text-align: center; margin-top: 50px; }
+
+/* ---------- Travel tips ---------- */
+.tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.tip-card {
+  background: #fff; border-radius: var(--radius); overflow: hidden; border: 1px solid #eef1f5;
+  display: flex; flex-direction: column; transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.tip-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+.tip-img { position: relative; height: 210px; overflow: hidden; background: #2a3d55; }
+.tip-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.tip-card:hover .tip-img img { transform: scale(1.08); }
+.tip-tag {
+  position: absolute; top: 16px; left: 16px; background: var(--accent); color: #fff;
+  font-size: .75rem; font-weight: 600; padding: 5px 12px; border-radius: 999px; letter-spacing: .04em;
+}
+.tip-body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
+.tip-body h3 { font-size: 1.35rem; margin-bottom: 10px; }
+.tip-body p { color: var(--muted); font-size: .93rem; flex: 1; }
+.tip-meta { margin-top: 18px; font-size: .82rem; color: var(--muted); font-weight: 500; }
+
+@media (max-width: 1024px) {
+  .steps { grid-template-columns: repeat(2, 1fr); row-gap: 44px; }
+  .steps::before { display: none; }
+}
+@media (max-width: 900px) {
+  .season-panel { grid-template-columns: 1fr 1fr; }
+  .tips-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .season-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .season-tab { min-width: 0; padding: 12px 10px; font-size: .95rem; }
+  .season-panel { grid-template-columns: 1fr; }
+  .season-item { display: flex; }
+  .season-item img { width: 120px; height: auto; min-height: 130px; flex-shrink: 0; }
+  .season-item > div { padding: 16px; }
+  .season-item h4 { font-size: 1.1rem; }
+  .season-item p { font-size: .85rem; }
+  .steps { grid-template-columns: 1fr; }
+  .tips-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Footer brand ---------- */
+footer { padding-top: 64px; }
+.footer-brand { text-align: center; margin-bottom: 36px; }
+.footer-brand p { margin: 0 auto; max-width: 440px; }
+
 /* ---------- Footer disclaimer ---------- */
+.disclaimer { text-align: center; }
 .disclaimer {
   border-top: 1px solid rgba(255,255,255,.08);
   padding: 26px 0; margin-bottom: 4px;
