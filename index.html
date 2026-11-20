@@ -4,410 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>22be8 — Best Places to Visit</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta name="description" content="Discover the world's best places to visit — handpicked destinations, travel tips and inspiration for your next adventure." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --primary: #ff6b4a;
-      --primary-dark: #e9542f;
-      --accent: #0fb5ae;
-      --dark: #0f1b2d;
-      --text: #3c4658;
-      --muted: #7a8599;
-      --bg: #ffffff;
-      --bg-soft: #f6f8fb;
-      --card: #ffffff;
-      --radius: 20px;
-      --shadow: 0 20px 45px -20px rgba(15, 27, 45, 0.35);
-      --ease: cubic-bezier(.2, .8, .2, 1);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "Poppins", system-ui, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-    h1, h2, h3 { font-family: "Playfair Display", serif; color: var(--dark); line-height: 1.15; }
-    .container { width: min(1200px, 100% - 32px); margin-inline: auto; }
-    section { padding: 100px 0; }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: .8rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 12px;
-    }
-    .section-head { text-align: center; max-width: 640px; margin: 0 auto 56px; }
-    .section-head h2 { font-size: clamp(2rem, 4vw, 2.9rem); margin-bottom: 14px; }
-    .section-head p { color: var(--muted); }
-
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 14px 30px; border-radius: 999px; border: none; cursor: pointer;
-      font: 500 1rem "Poppins", sans-serif;
-      transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .3s;
-    }
-    .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 12px 30px -10px rgba(255,107,74,.7); }
-    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-3px); }
-    .btn-ghost { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.5); backdrop-filter: blur(6px); }
-    .btn-ghost:hover { background: rgba(255,255,255,.28); transform: translateY(-3px); }
-
-    /* ---------- Navbar ---------- */
-    .nav {
-      position: fixed; inset: 0 0 auto 0; z-index: 100;
-      padding: 22px 0;
-      transition: background .35s, padding .35s, box-shadow .35s;
-    }
-    .nav.scrolled { background: rgba(255,255,255,.92); backdrop-filter: blur(12px); padding: 14px 0; box-shadow: 0 6px 30px -12px rgba(0,0,0,.2); }
-    .nav .container { display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-family: "Playfair Display", serif; font-size: 1.7rem; font-weight: 700; color: #fff; transition: color .35s; }
-    .logo span { color: var(--primary); }
-    .nav.scrolled .logo { color: var(--dark); }
-    .nav-links { display: flex; gap: 34px; list-style: none; align-items: center; }
-    .nav-links a { color: rgba(255,255,255,.9); font-weight: 500; font-size: .95rem; position: relative; transition: color .3s; }
-    .nav.scrolled .nav-links a { color: var(--text); }
-    .nav-links a:not(.btn)::after {
-      content: ""; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0;
-      background: var(--primary); transition: width .3s var(--ease);
-    }
-    .nav-links a:not(.btn):hover::after { width: 100%; }
-    .nav-links .btn { padding: 10px 22px; color: #fff !important; }
-    .menu-toggle { display: none; background: none; border: none; cursor: pointer; width: 32px; height: 24px; position: relative; z-index: 101; }
-    .menu-toggle span { position: absolute; left: 0; width: 100%; height: 2px; background: #fff; border-radius: 2px; transition: .35s var(--ease); }
-    .nav.scrolled .menu-toggle span { background: var(--dark); }
-    .menu-toggle span:nth-child(1) { top: 0; }
-    .menu-toggle span:nth-child(2) { top: 11px; }
-    .menu-toggle span:nth-child(3) { top: 22px; }
-    .menu-toggle.open span { background: var(--dark); }
-    .menu-toggle.open span:nth-child(1) { top: 11px; transform: rotate(45deg); }
-    .menu-toggle.open span:nth-child(2) { opacity: 0; }
-    .menu-toggle.open span:nth-child(3) { top: 11px; transform: rotate(-45deg); }
-
-    /* ---------- Hero ---------- */
-    .hero {
-      min-height: 100vh; min-height: 100svh;
-      display: flex; align-items: center;
-      position: relative; color: #fff; padding: 140px 0 120px;
-      background: #1d3b53 url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80") center/cover no-repeat;
-      isolation: isolate;
-    }
-    .hero::before {
-      content: ""; position: absolute; inset: 0; z-index: -1;
-      background: linear-gradient(110deg, rgba(10,20,40,.82) 0%, rgba(10,20,40,.45) 55%, rgba(10,20,40,.15) 100%);
-    }
-    .hero-content { max-width: 680px; }
-    .hero .eyebrow { color: #ffd2c6; }
-    .hero h1 { color: #fff; font-size: clamp(2.6rem, 6.5vw, 5rem); margin-bottom: 22px; }
-    .hero h1 em { color: var(--primary); font-style: italic; }
-    .hero p { font-size: clamp(1rem, 1.6vw, 1.15rem); color: rgba(255,255,255,.85); max-width: 540px; margin-bottom: 36px; font-weight: 300; }
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-
-    .search-box {
-      margin-top: 56px;
-      background: #fff; border-radius: 22px; padding: 10px;
-      display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 6px;
-      box-shadow: 0 30px 60px -20px rgba(0,0,0,.45);
-      max-width: 860px;
-    }
-    .search-field { padding: 10px 18px; border-right: 1px solid #eceff4; }
-    .search-field:nth-child(3) { border-right: none; }
-    .search-field label { display: block; font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
-    .search-field input, .search-field select {
-      width: 100%; border: none; outline: none; background: transparent;
-      font: 500 .98rem "Poppins", sans-serif; color: var(--dark); padding-top: 2px;
-    }
-    .search-box .btn { border-radius: 16px; justify-content: center; }
-
-    .scroll-indicator {
-      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
-      width: 26px; height: 42px; border: 2px solid rgba(255,255,255,.6); border-radius: 20px;
-    }
-    .scroll-indicator::after {
-      content: ""; position: absolute; top: 8px; left: 50%; width: 4px; height: 8px; margin-left: -2px;
-      background: #fff; border-radius: 4px; animation: scroll 1.8s infinite;
-    }
-    @keyframes scroll { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(14px); } }
-
-    /* ---------- Stats ---------- */
-    .stats { padding: 0; margin-top: -60px; position: relative; z-index: 5; }
-    .stats-grid {
-      background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
-      display: grid; grid-template-columns: repeat(4, 1fr); padding: 36px 20px;
-    }
-    .stat { text-align: center; padding: 6px 10px; border-right: 1px solid #eef1f5; }
-    .stat:last-child { border-right: none; }
-    .stat strong { display: block; font-family: "Playfair Display", serif; font-size: clamp(1.9rem, 3.5vw, 2.6rem); color: var(--dark); }
-    .stat span { color: var(--muted); font-size: .92rem; }
-
-    /* ---------- Destinations ---------- */
-    .filters { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 44px; }
-    .filter-btn {
-      padding: 10px 22px; border-radius: 999px; border: 1px solid #e3e7ee; background: #fff; cursor: pointer;
-      font: 500 .92rem "Poppins", sans-serif; color: var(--text); transition: .3s var(--ease);
-    }
-    .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
-    .filter-btn.active { background: var(--dark); color: #fff; border-color: var(--dark); }
-
-    .dest-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px; }
-    .dest-card {
-      position: relative; border-radius: var(--radius); overflow: hidden; height: 440px;
-      box-shadow: var(--shadow); cursor: pointer; background: #2a3d55;
-      transition: transform .5s var(--ease), opacity .4s;
-    }
-    .dest-card.hide { display: none; }
-    .dest-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
-    .dest-card::after {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(5,12,25,.88) 100%);
-    }
-    .dest-card:hover { transform: translateY(-8px); }
-    .dest-card:hover img { transform: scale(1.1); }
-    .dest-badge {
-      position: absolute; top: 18px; left: 18px; z-index: 2;
-      background: rgba(255,255,255,.95); color: var(--dark); font-size: .78rem; font-weight: 600;
-      padding: 6px 14px; border-radius: 999px;
-    }
-    .dest-rating {
-      position: absolute; top: 18px; right: 18px; z-index: 2;
-      background: rgba(15,27,45,.6); backdrop-filter: blur(6px); color: #fff; font-size: .82rem; font-weight: 500;
-      padding: 6px 12px; border-radius: 999px;
-    }
-    .dest-rating::before { content: "★ "; color: #ffc94a; }
-    .dest-info { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; z-index: 2; color: #fff; }
-    .dest-info .loc { font-size: .85rem; opacity: .85; display: flex; align-items: center; gap: 6px; }
-    .dest-info h3 { color: #fff; font-size: 1.75rem; margin: 4px 0 8px; }
-    .dest-info p {
-      font-size: .9rem; opacity: 0; max-height: 0; overflow: hidden; font-weight: 300;
-      transition: opacity .5s var(--ease), max-height .5s var(--ease);
-    }
-    .dest-card:hover .dest-info p, .dest-card:focus-within .dest-info p { opacity: .9; max-height: 100px; }
-    .dest-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.2); }
-    .dest-meta .price { font-weight: 600; font-size: 1.1rem; }
-    .dest-meta .price small { font-weight: 300; font-size: .78rem; opacity: .8; }
-    .dest-meta .arrow {
-      width: 40px; height: 40px; border-radius: 50%; background: var(--primary); display: grid; place-items: center;
-      transition: transform .3s var(--ease);
-    }
-    .dest-card:hover .arrow { transform: rotate(-45deg); }
-
-    /* ---------- Featured (split) ---------- */
-    .featured { background: var(--bg-soft); }
-    .split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 70px; align-items: center; }
-    .split-media { position: relative; }
-    .split-media .main-img { border-radius: var(--radius); height: 540px; width: 100%; object-fit: cover; box-shadow: var(--shadow); background: #2a3d55; }
-    .split-media .float-img {
-      position: absolute; right: -30px; bottom: -40px; width: 46%; height: 240px; object-fit: cover;
-      border-radius: var(--radius); border: 8px solid var(--bg-soft); box-shadow: var(--shadow); background: #2a3d55;
-    }
-    .split-media .float-card {
-      position: absolute; top: 30px; left: -30px; background: #fff; border-radius: 16px; padding: 16px 20px;
-      box-shadow: var(--shadow); display: flex; align-items: center; gap: 14px; animation: float 4s ease-in-out infinite;
-    }
-    .float-card .icon { width: 46px; height: 46px; border-radius: 12px; background: #fff0ec; display: grid; place-items: center; font-size: 1.4rem; }
-    .float-card strong { display: block; color: var(--dark); font-size: .95rem; }
-    .float-card span { font-size: .8rem; color: var(--muted); }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-    .split-text h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 18px; }
-    .split-text > p { color: var(--muted); margin-bottom: 30px; }
-    .feature-list { list-style: none; display: grid; gap: 22px; margin-bottom: 36px; }
-    .feature-list li { display: flex; gap: 18px; align-items: flex-start; }
-    .feature-list .ic {
-      flex-shrink: 0; width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; font-size: 1.4rem;
-      background: #fff; box-shadow: 0 10px 25px -12px rgba(15,27,45,.3);
-    }
-    .feature-list h4 { color: var(--dark); font-size: 1.05rem; font-weight: 600; margin-bottom: 2px; }
-    .feature-list p { color: var(--muted); font-size: .92rem; }
-
-    /* ---------- Why us ---------- */
-    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .why-card {
-      padding: 36px 28px; border-radius: var(--radius); background: #fff; border: 1px solid #eef1f5;
-      transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s;
-    }
-    .why-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); border-color: transparent; }
-    .why-card .ic {
-      width: 62px; height: 62px; border-radius: 18px; display: grid; place-items: center; font-size: 1.7rem; margin-bottom: 22px;
-    }
-    .why-card:nth-child(1) .ic { background: #fff0ec; }
-    .why-card:nth-child(2) .ic { background: #e6f8f7; }
-    .why-card:nth-child(3) .ic { background: #fff7e0; }
-    .why-card:nth-child(4) .ic { background: #eef0ff; }
-    .why-card h3 { font-family: "Poppins", sans-serif; font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; }
-    .why-card p { color: var(--muted); font-size: .93rem; }
-
-    /* ---------- Gallery ---------- */
-    .gallery { background: var(--dark); }
-    .gallery .section-head h2 { color: #fff; }
-    .gallery .section-head p { color: #9aa6ba; }
-    .gallery-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 16px;
-    }
-    .gallery-grid figure { position: relative; overflow: hidden; border-radius: 16px; background: #1e2e45; }
-    .gallery-grid figure:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-    .gallery-grid figure:nth-child(4) { grid-row: span 2; }
-    .gallery-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease), filter .8s; }
-    .gallery-grid figure:hover img { transform: scale(1.08); filter: brightness(.7); }
-    .gallery-grid figcaption {
-      position: absolute; left: 18px; bottom: 16px; color: #fff; font-weight: 500;
-      transform: translateY(20px); opacity: 0; transition: .5s var(--ease);
-    }
-    .gallery-grid figure:hover figcaption { transform: translateY(0); opacity: 1; }
-
-    /* ---------- Testimonials ---------- */
-    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .testi {
-      background: var(--bg-soft); border-radius: var(--radius); padding: 34px; position: relative;
-      transition: transform .4s var(--ease);
-    }
-    .testi:hover { transform: translateY(-6px); }
-    .testi::before {
-      content: "\201C"; position: absolute; top: 6px; right: 26px;
-      font-family: "Playfair Display", serif; font-size: 6rem; color: var(--primary); opacity: .18; line-height: 1;
-    }
-    .testi .stars { color: #ffb400; letter-spacing: 2px; margin-bottom: 14px; }
-    .testi p { font-size: .98rem; margin-bottom: 24px; }
-    .testi .person { display: flex; align-items: center; gap: 14px; }
-    .avatar {
-      width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center;
-      font-weight: 600; color: #fff;
-    }
-    .testi:nth-child(1) .avatar { background: linear-gradient(135deg, #ff6b4a, #ffb36b); }
-    .testi:nth-child(2) .avatar { background: linear-gradient(135deg, #0fb5ae, #5ad1e6); }
-    .testi:nth-child(3) .avatar { background: linear-gradient(135deg, #6c63ff, #b28dff); }
-    .person strong { display: block; color: var(--dark); }
-    .person span { font-size: .85rem; color: var(--muted); }
-
-    /* ---------- CTA ---------- */
-    .cta { padding: 0 0 100px; }
-    .cta-box {
-      border-radius: 28px; padding: 80px 60px; text-align: center; color: #fff; position: relative; overflow: hidden;
-      background: #0b4f6c url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1800&q=80") center/cover;
-      isolation: isolate;
-    }
-    .cta-box::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(120deg, rgba(255,107,74,.88), rgba(15,27,45,.85)); }
-    .cta-box h2 { color: #fff; font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom: 14px; }
-    .cta-box p { opacity: .9; max-width: 520px; margin: 0 auto 34px; }
-    .newsletter { display: flex; max-width: 520px; margin: 0 auto; background: #fff; border-radius: 999px; padding: 6px; }
-    .newsletter input { flex: 1; min-width: 0; border: none; outline: none; padding: 0 22px; font: 400 1rem "Poppins", sans-serif; border-radius: 999px; color: var(--dark); }
-    .newsletter .btn { background: var(--dark); color: #fff; }
-    .newsletter .btn:hover { background: var(--primary); }
-    .form-msg { margin-top: 14px; font-size: .92rem; min-height: 1.4em; }
-
-    /* ---------- Footer ---------- */
-    footer { background: #0a1322; color: #9aa6ba; padding: 80px 0 30px; }
-    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
-    footer .logo { display: inline-block; margin-bottom: 16px; }
-    footer p { font-size: .93rem; max-width: 300px; }
-    footer h4 { color: #fff; font-size: 1rem; font-weight: 600; margin-bottom: 18px; }
-    footer ul { list-style: none; display: grid; gap: 10px; font-size: .93rem; }
-    footer ul a:hover { color: var(--primary); }
-    .socials { display: flex; gap: 12px; margin-top: 22px; }
-    .socials a {
-      width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
-      background: rgba(255,255,255,.07); color: #fff; font-size: .85rem; font-weight: 600; transition: .3s;
-    }
-    .socials a:hover { background: var(--primary); transform: translateY(-3px); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 26px; text-align: center; font-size: .85rem; }
-
-    .to-top {
-      position: fixed; right: 22px; bottom: 22px; width: 48px; height: 48px; border-radius: 50%;
-      background: var(--primary); color: #fff; border: none; cursor: pointer; font-size: 1.2rem;
-      box-shadow: 0 12px 30px -10px rgba(255,107,74,.8); opacity: 0; pointer-events: none; transform: translateY(20px);
-      transition: .4s var(--ease); z-index: 90;
-    }
-    .to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
-
-    /* ---------- Reveal ---------- */
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* ---------- Responsive ---------- */
-    @media (max-width: 1024px) {
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
-      .split { gap: 60px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 900px) {
-      section { padding: 80px 0; }
-      .menu-toggle { display: block; }
-      .nav-links {
-        position: fixed; inset: 0 0 0 auto; width: min(320px, 85vw);
-        flex-direction: column; justify-content: center; gap: 28px;
-        background: #fff; box-shadow: -20px 0 50px rgba(0,0,0,.2);
-        transform: translateX(100%); transition: transform .45s var(--ease);
-      }
-      .nav-links.open { transform: translateX(0); }
-      .nav-links a { color: var(--dark) !important; font-size: 1.1rem; }
-      .search-box { grid-template-columns: 1fr 1fr; }
-      .search-field:nth-child(2) { border-right: none; }
-      .search-field { border-bottom: 1px solid #eceff4; }
-      .search-field:nth-child(3) { border-bottom: none; }
-      .search-box .btn { padding: 14px; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); row-gap: 26px; }
-      .stat:nth-child(2) { border-right: none; }
-      .split { grid-template-columns: 1fr; }
-      .split-media { margin: 0 20px 40px; }
-      .split-media .main-img { height: 420px; }
-      .testi-grid { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
-      .gallery-grid figure:nth-child(4) { grid-row: span 1; }
-      .gallery-grid figcaption { opacity: 1; transform: none; }
-    }
-
-    @media (max-width: 600px) {
-      section { padding: 64px 0; }
-      .hero { padding: 120px 0 100px; }
-      .search-box { grid-template-columns: 1fr; margin-top: 40px; }
-      .search-field { border-right: none !important; border-bottom: 1px solid #eceff4 !important; }
-      .search-field:nth-child(3) { border-bottom: none !important; }
-      .scroll-indicator { display: none; }
-      .stats { margin-top: -40px; }
-      .stats-grid { padding: 26px 10px; }
-      .why-grid { grid-template-columns: 1fr; }
-      .dest-card { height: 400px; }
-      .dest-info p { opacity: .9; max-height: 100px; }
-      .split-media { margin: 0 0 40px; }
-      .split-media .main-img { height: 340px; }
-      .split-media .float-img { right: -6px; bottom: -30px; height: 150px; }
-      .split-media .float-card { left: 10px; top: 14px; padding: 12px 14px; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 140px; gap: 10px; }
-      .cta-box { padding: 56px 22px; border-radius: 22px; }
-      .newsletter { flex-direction: column; background: transparent; gap: 10px; padding: 0; }
-      .newsletter input { background: #fff; padding: 16px 22px; }
-      .newsletter .btn { justify-content: center; }
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .testi { padding: 28px 24px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-      html { scroll-behavior: auto; }
-      .reveal { opacity: 1; transform: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- ============ NAVBAR ============ -->
   <header class="nav" id="nav">
     <div class="container">
-      <a href="#home" class="logo">22be<span>8</span></a>
+      <a href="#home" class="logo" aria-label="22be8 home"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 25 37 13l-9 23.5-5-8.6z" fill="#fff"/><path d="M23 27.9 37 13" stroke="#e9542f" stroke-width="1.6" stroke-linecap="round" opacity=".5"/><path d="M8.5 37.5c3-1 5.5-2.7 7.8-5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="1.5 3.5" opacity=".85"/></svg></span><span class="logo-text">22be<span>8</span></span></a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#destinations">Destinations</a></li>
         <li><a href="#featured">Experiences</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact" class="btn btn-primary">Plan a Trip</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="contact.html#enquiry" class="btn btn-primary">Plan a Trip</a></li>
       </ul>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -427,27 +44,6 @@
           <a href="#featured" class="btn btn-ghost">▶ Watch Stories</a>
         </div>
       </div>
-
-      <form class="search-box reveal" onsubmit="event.preventDefault(); document.getElementById('destinations').scrollIntoView();">
-        <div class="search-field">
-          <label for="where">Where</label>
-          <input id="where" type="text" placeholder="Search a destination" />
-        </div>
-        <div class="search-field">
-          <label for="when">When</label>
-          <input id="when" type="month" />
-        </div>
-        <div class="search-field">
-          <label for="type">Travel Type</label>
-          <select id="type">
-            <option>Any adventure</option>
-            <option>Beach & Islands</option>
-            <option>Mountains</option>
-            <option>Cities & Culture</option>
-          </select>
-        </div>
-        <button class="btn btn-primary" type="submit">Search</button>
-      </form>
     </div>
     <div class="scroll-indicator" aria-hidden="true"></div>
   </section>
@@ -489,7 +85,6 @@
             <span class="loc">📍 Greece</span>
             <h3>Santorini</h3>
             <p>Whitewashed villages, volcanic beaches and the most famous sunsets in the Aegean Sea.</p>
-            <div class="dest-meta"><span class="price">$1,250 <small>/ person</small></span><span class="arrow">→</span></div>
           </div>
         </article>
 
@@ -501,7 +96,6 @@
             <span class="loc">📍 Japan</span>
             <h3>Kyoto</h3>
             <p>Thousands of temples, bamboo forests, geisha districts and cherry blossoms in spring.</p>
-            <div class="dest-meta"><span class="price">$1,480 <small>/ person</small></span><span class="arrow">→</span></div>
           </div>
         </article>
 
@@ -513,7 +107,6 @@
             <span class="loc">📍 Indonesia</span>
             <h3>Bali</h3>
             <p>Emerald rice terraces, sacred temples, surf beaches and a laid-back island soul.</p>
-            <div class="dest-meta"><span class="price">$890 <small>/ person</small></span><span class="arrow">→</span></div>
           </div>
         </article>
 
@@ -525,7 +118,6 @@
             <span class="loc">📍 Switzerland</span>
             <h3>Swiss Alps</h3>
             <p>Glacier lakes, scenic railways and alpine villages straight out of a postcard.</p>
-            <div class="dest-meta"><span class="price">$1,690 <small>/ person</small></span><span class="arrow">→</span></div>
           </div>
         </article>
 
@@ -537,7 +129,6 @@
             <span class="loc">📍 France</span>
             <h3>Paris</h3>
             <p>Art, fashion, cafés and the Eiffel Tower sparkling over the Seine at night.</p>
-            <div class="dest-meta"><span class="price">$1,320 <small>/ person</small></span><span class="arrow">→</span></div>
           </div>
         </article>
 
@@ -549,7 +140,6 @@
             <span class="loc">📍 Maldives</span>
             <h3>Maldives</h3>
             <p>Overwater villas, crystal lagoons and coral reefs bursting with marine life.</p>
-            <div class="dest-meta"><span class="price">$2,150 <small>/ person</small></span><span class="arrow">→</span></div>
           </div>
         </article>
 
@@ -561,7 +151,6 @@
             <span class="loc">📍 Peru</span>
             <h3>Machu Picchu</h3>
             <p>The legendary Inca citadel perched high in the clouds of the Andes mountains.</p>
-            <div class="dest-meta"><span class="price">$1,540 <small>/ person</small></span><span class="arrow">→</span></div>
           </div>
         </article>
 
@@ -573,9 +162,50 @@
             <span class="loc">📍 Iceland</span>
             <h3>Iceland</h3>
             <p>Northern lights, thundering waterfalls, black-sand beaches and hot springs.</p>
-            <div class="dest-meta"><span class="price">$1,780 <small>/ person</small></span><span class="arrow">→</span></div>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEST TIME TO VISIT ============ -->
+  <section class="seasons" id="seasons">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Seasonal Guide</span>
+        <h2>Best Time to Visit</h2>
+        <p>Every place has its perfect season. Pick a time of year and see where to go (Northern Hemisphere seasons).</p>
+      </div>
+
+      <div class="season-tabs reveal" role="tablist" aria-label="Seasons">
+        <button class="season-tab active" role="tab" aria-selected="true" aria-controls="s-spring" id="t-spring">🌸 Spring <small>Mar – May</small></button>
+        <button class="season-tab" role="tab" aria-selected="false" aria-controls="s-summer" id="t-summer" tabindex="-1">☀️ Summer <small>Jun – Aug</small></button>
+        <button class="season-tab" role="tab" aria-selected="false" aria-controls="s-autumn" id="t-autumn" tabindex="-1">🍁 Autumn <small>Sep – Nov</small></button>
+        <button class="season-tab" role="tab" aria-selected="false" aria-controls="s-winter" id="t-winter" tabindex="-1">❄️ Winter <small>Dec – Feb</small></button>
+      </div>
+
+      <div class="season-panel active" id="s-spring" role="tabpanel" aria-labelledby="t-spring">
+        <div class="season-item"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=500&q=75" alt="Kyoto temple" loading="lazy" /><div><h4>Kyoto, Japan</h4><p>Cherry blossoms turn temple gardens and riverbanks pink in late March and early April.</p></div></div>
+        <div class="season-item"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=500&q=75" alt="Paris" loading="lazy" /><div><h4>Paris, France</h4><p>Mild weather, blooming parks and café terraces before the summer crowds arrive.</p></div></div>
+        <div class="season-item"><img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=500&q=75" alt="Ha Long Bay" loading="lazy" /><div><h4>Ha Long Bay, Vietnam</h4><p>Calm seas and clear skies make it ideal for cruising among the limestone islands.</p></div></div>
+      </div>
+
+      <div class="season-panel" id="s-summer" role="tabpanel" aria-labelledby="t-summer" hidden>
+        <div class="season-item"><img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=500&q=75" alt="Santorini" loading="lazy" /><div><h4>Santorini, Greece</h4><p>Long sunny days, warm sea and the famous Oia sunsets at their most spectacular.</p></div></div>
+        <div class="season-item"><img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=500&q=75" alt="Swiss Alps" loading="lazy" /><div><h4>Swiss Alps</h4><p>Wildflower meadows, open hiking trails and crystal-clear glacier lakes.</p></div></div>
+        <div class="season-item"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=500&q=75" alt="Amalfi Coast" loading="lazy" /><div><h4>Amalfi Coast, Italy</h4><p>Boat trips, lemon groves and cliffside villages basking in Mediterranean sun.</p></div></div>
+      </div>
+
+      <div class="season-panel" id="s-autumn" role="tabpanel" aria-labelledby="t-autumn" hidden>
+        <div class="season-item"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=500&q=75" alt="Bali" loading="lazy" /><div><h4>Bali, Indonesia</h4><p>The tail end of the dry season brings sunshine with fewer visitors.</p></div></div>
+        <div class="season-item"><img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=500&q=75" alt="Machu Picchu" loading="lazy" /><div><h4>Machu Picchu, Peru</h4><p>September and October offer dry trails and green mountains for the Inca Trail.</p></div></div>
+        <div class="season-item"><img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=500&q=75" alt="Serengeti wildlife" loading="lazy" /><div><h4>Serengeti, Tanzania</h4><p>Catch the final stages of the Great Migration across the northern plains.</p></div></div>
+      </div>
+
+      <div class="season-panel" id="s-winter" role="tabpanel" aria-labelledby="t-winter" hidden>
+        <div class="season-item"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=500&q=75" alt="Maldives" loading="lazy" /><div><h4>Maldives</h4><p>Dry season means calm turquoise water, sunshine and perfect snorkeling.</p></div></div>
+        <div class="season-item"><img src="https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=500&q=75" alt="Iceland" loading="lazy" /><div><h4>Iceland</h4><p>Long dark nights give you the best chance to see the northern lights.</p></div></div>
+        <div class="season-item"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=500&q=75" alt="Dubai" loading="lazy" /><div><h4>Dubai, UAE</h4><p>Pleasant warm days, desert safaris and outdoor festivals without the summer heat.</p></div></div>
       </div>
     </div>
   </section>
@@ -609,7 +239,7 @@
             <div><h4>Local Guides</h4><p>Passionate guides who share the stories guidebooks never tell.</p></div>
           </li>
         </ul>
-        <a href="#contact" class="btn btn-primary">Start Planning →</a>
+        <a href="contact.html#enquiry" class="btn btn-primary">Start Planning →</a>
       </div>
     </div>
   </section>
@@ -631,6 +261,44 @@
     </div>
   </section>
 
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="steps-section" id="how">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">How It Works</span>
+        <h2>Your Dream Trip in 4 Easy Steps</h2>
+        <p>From the first idea to the moment you land, we make planning simple.</p>
+      </div>
+      <ol class="steps">
+        <li class="step reveal">
+          <div class="step-num">01</div>
+          <div class="step-ic">🌍</div>
+          <h3>Choose a Destination</h3>
+          <p>Browse our handpicked places or tell us the kind of experience you're after.</p>
+        </li>
+        <li class="step reveal">
+          <div class="step-num">02</div>
+          <div class="step-ic">💬</div>
+          <h3>Share Your Plans</h3>
+          <p>Send us your dates, budget and interests through our quick enquiry form.</p>
+        </li>
+        <li class="step reveal">
+          <div class="step-num">03</div>
+          <div class="step-ic">📝</div>
+          <h3>Get a Custom Itinerary</h3>
+          <p>Receive a tailored day-by-day plan and refine it until it feels just right.</p>
+        </li>
+        <li class="step reveal">
+          <div class="step-num">04</div>
+          <div class="step-ic">🧳</div>
+          <h3>Pack &amp; Go</h3>
+          <p>Relax and enjoy the journey, with support available whenever you need it.</p>
+        </li>
+      </ol>
+      <div class="steps-cta reveal"><a href="contact.html#enquiry" class="btn btn-primary">Start Step One →</a></div>
+    </div>
+  </section>
+
   <!-- ============ GALLERY ============ -->
   <section class="gallery" id="gallery">
     <div class="container">
@@ -646,6 +314,43 @@
         <figure><img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=600&q=80" alt="Safari wildlife" loading="lazy" /><figcaption>Serengeti, Tanzania</figcaption></figure>
         <figure><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=600&q=80" alt="Taj Mahal" loading="lazy" /><figcaption>Taj Mahal, India</figcaption></figure>
         <figure><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" alt="Dubai skyline" loading="lazy" /><figcaption>Dubai, UAE</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRAVEL TIPS ============ -->
+  <section class="tips" id="tips">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Travel Tips</span>
+        <h2>Smart Tips for Better Trips</h2>
+        <p>Simple advice from our travel experts to help you save money, stay safe and travel well.</p>
+      </div>
+      <div class="tips-grid">
+        <article class="tip-card reveal">
+          <div class="tip-img"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=75" alt="Airplane wing above clouds" loading="lazy" /><span class="tip-tag">Budget</span></div>
+          <div class="tip-body">
+            <h3>Book Flights at the Right Time</h3>
+            <p>Booking international flights a few months ahead and staying flexible by a day or two can noticeably lower fares. Set price alerts and compare nearby airports.</p>
+            <span class="tip-meta">⏱ 2 min read</span>
+          </div>
+        </article>
+        <article class="tip-card reveal">
+          <div class="tip-img"><img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=75" alt="Travel planning with a map" loading="lazy" /><span class="tip-tag">Planning</span></div>
+          <div class="tip-body">
+            <h3>Pack Light, Travel Smart</h3>
+            <p>Stick to versatile clothing, roll instead of fold, and keep essentials, medicines and copies of documents in your carry-on in case checked bags are delayed.</p>
+            <span class="tip-meta">⏱ 3 min read</span>
+          </div>
+        </article>
+        <article class="tip-card reveal">
+          <div class="tip-img"><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=75" alt="Taj Mahal" loading="lazy" /><span class="tip-tag">Culture</span></div>
+          <div class="tip-body">
+            <h3>Respect Local Customs</h3>
+            <p>Learn a few words of the local language, check dress codes for religious sites and read up on tipping etiquette. Small gestures make a big difference.</p>
+            <span class="tip-meta">⏱ 2 min read</span>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -696,43 +401,12 @@
   <!-- ============ FOOTER ============ -->
   <footer>
     <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="#home" class="logo">22be<span>8</span></a>
-          <p>Inspiring travelers to explore the best places on Earth since 2015. Your adventure starts here.</p>
-          <div class="socials">
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="Instagram">in</a>
-            <a href="#" aria-label="X">X</a>
-            <a href="#" aria-label="YouTube">▶</a>
-          </div>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="#destinations">Destinations</a></li>
-            <li><a href="#featured">Experiences</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Company</h4>
-          <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Travel Blog</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <ul>
-            <li>📞 +1 (555) 123-4567</li>
-            <li>✉️ hello@22be8.com</li>
-            <li>📍 123 Explorer Ave, Anywhere</li>
-          </ul>
-        </div>
+      <div class="footer-brand">
+        <a href="#home" class="logo" aria-label="22be8 home"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 25 37 13l-9 23.5-5-8.6z" fill="#fff"/><path d="M23 27.9 37 13" stroke="#e9542f" stroke-width="1.6" stroke-linecap="round" opacity=".5"/><path d="M8.5 37.5c3-1 5.5-2.7 7.8-5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="1.5 3.5" opacity=".85"/></svg></span><span class="logo-text">22be<span>8</span></span></a>
+        <p>Inspiring travelers to explore the best places on Earth since 2015. Your adventure starts here.</p>
+      </div>
+      <div class="disclaimer">
+        <strong>Disclaimer:</strong> The information on 22be8 is provided for general travel inspiration only. Ratings, availability and travel details shown are indicative and may change without notice; please confirm all details before booking. Images are for illustrative purposes and may not represent exact locations or properties. Always check current visa, health and safety advisories from official government sources before you travel. 22be8 is not responsible for any loss, inconvenience or damage arising from the use of this website or from third-party services linked to it.
       </div>
       <div class="footer-bottom">© <span id="year"></span> 22be8. All rights reserved.</div>
     </div>
@@ -777,6 +451,28 @@
         if (show) card.classList.add('visible');
       });
     }));
+
+    // Season tabs
+    const seasonTabs = [...document.querySelectorAll('.season-tab')];
+    const selectSeason = (tab) => {
+      seasonTabs.forEach(t => {
+        const on = t === tab;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', on);
+        t.tabIndex = on ? 0 : -1;
+        const panel = document.getElementById(t.getAttribute('aria-controls'));
+        panel.hidden = !on;
+        panel.classList.toggle('active', on);
+      });
+    };
+    seasonTabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => selectSeason(tab));
+      tab.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        const next = seasonTabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + seasonTabs.length) % seasonTabs.length];
+        selectSeason(next); next.focus();
+      });
+    });
 
     // Scroll reveal
     const revealObs = new IntersectionObserver((entries) => {
