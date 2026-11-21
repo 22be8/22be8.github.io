@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — 22be8 Fitness</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="description" content="Get in touch with 22be8 for help choosing a workout program, training plans and fitness advice." />
+  <meta name="theme-color" content="#0b0d0c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="nav" id="nav">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="22be8 home"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><g fill="#0b0d0c" transform="rotate(-35 24 24)"><rect x="7" y="16" width="6" height="16" rx="2"/><rect x="13" y="19" width="4" height="10" rx="1.5"/><rect x="17" y="22.5" width="14" height="3" rx="1.5"/><rect x="31" y="19" width="4" height="10" rx="1.5"/><rect x="35" y="16" width="6" height="16" rx="2"/></g></svg></span><span class="logo-text">22be<span>8</span></span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#programs">Programs</a></li>
+        <li><a href="index.html#plans">Weekly Plans</a></li>
+        <li><a href="index.html#bmi">BMI</a></li>
+        <li><a href="index.html#tips">Tips</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="contact.html" class="current" aria-current="page">Contact Us</a></li>
+        <li><a href="#enquiry" class="btn btn-primary">Start Training</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow reveal">We're here to help</span>
+      <h1 class="reveal">Contact Us</h1>
+      <p class="reveal">Not sure where to start? Tell us about your goals and our coaches will help you find the right program.</p>
+      <div class="breadcrumb reveal"><a href="index.html">Home</a> &nbsp;/&nbsp; Contact Us</div>
+    </div>
+  </section>
+
+  <!-- ============ INFO CARDS ============ -->
+  <section class="info-section">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-card reveal">
+          <div class="ic">📞</div>
+          <h3>Call Us</h3>
+          <a href="tel:+15556734547">+1 (555) 673-4547</a>
+        </div>
+        <div class="info-card reveal">
+          <div class="ic">✉️</div>
+          <h3>Email Us</h3>
+          <a href="mailto:hello@22be8.com">hello@22be8.com</a>
+        </div>
+        <div class="info-card reveal">
+          <div class="ic">📍</div>
+          <h3>Visit Us</h3>
+          <p>123 Fitness Ave, Anywhere</p>
+        </div>
+        <div class="info-card reveal">
+          <div class="ic">🕘</div>
+          <h3>Opening Hours</h3>
+          <p>Mon – Sat: 6:00 AM – 9:00 PM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FORM ============ -->
+  <section id="enquiry">
+    <div class="container contact-wrap">
+      <div class="contact-aside reveal">
+        <span class="eyebrow">Start Training</span>
+        <h2>Let's Build Your Plan Together</h2>
+        <p>Share your goals, experience and schedule. A coach will reply with program suggestions that suit your level and lifestyle.</p>
+        <img class="aside-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80" alt="Woman training in a gym" loading="lazy" />
+        <ul class="promise">
+          <li>Reply within 24 hours on working days</li>
+          <li>Free, no-obligation fitness consultation</li>
+          <li>Plans matched to your goals and equipment</li>
+          <li>Your details are never shared with third parties</li>
+        </ul>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <div class="form-body">
+          <h3>Send Us a Message</h3>
+          <p>Fields marked <span class="req">*</span> are required.</p>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Full Name <span class="req">*</span></label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+              <span class="err">Please enter your name.</span>
+            </div>
+            <div class="field">
+              <label for="cemail">Email <span class="req">*</span></label>
+              <input id="cemail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+              <span class="err">Please enter a valid email address.</span>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 555 000 0000" />
+              <span class="err">Please enter a valid phone number.</span>
+            </div>
+            <div class="field">
+              <label for="goal">Main Fitness Goal</label>
+              <select id="goal" name="goal">
+                <option value="">Not sure yet</option>
+                <option>Lose weight</option>
+                <option>Build muscle</option>
+                <option>Improve endurance</option>
+                <option>Increase flexibility</option>
+                <option>General fitness &amp; health</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="level">Experience Level</label>
+              <select id="level" name="level">
+                <option selected>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="date">Preferred Start Date</label>
+              <input id="date" name="date" type="date" />
+              <span class="err">Please choose a future date.</span>
+            </div>
+            <div class="field full">
+              <label for="message">Your Message <span class="req">*</span></label>
+              <textarea id="message" name="message" placeholder="Tell us about your goals, schedule and any injuries we should know about…" required></textarea>
+              <span class="err">Please write a short message (at least 10 characters).</span>
+            </div>
+            <div class="field full">
+              <label class="check">
+                <input type="checkbox" id="consent" required />
+                <span>I agree to be contacted by 22be8 about my enquiry. <span class="req">*</span></span>
+              </label>
+              <span class="err">Please accept to continue.</span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message →</button>
+        </div>
+
+        <div class="form-success" role="status" aria-live="polite">
+          <div class="big">💪</div>
+          <h3>Thank you, <span id="sentName">friend</span>!</h3>
+          <p>Your message has been received. One of our coaches will get back to you within 24 hours.</p>
+          <a href="index.html#programs" class="btn btn-primary">Explore Programs →</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Quick Answers</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Can't find what you're looking for? Send us a message above.</p>
+      </div>
+      <div class="faq-list">
+        <details class="reveal" open>
+          <summary>I'm a complete beginner. Where should I start?</summary>
+          <p>Start with the Full-Body Strength or Couch to 5K program and the Beginner weekly plan. Both begin gently and build up gradually, so you can learn good technique before adding intensity.</p>
+        </details>
+        <details class="reveal">
+          <summary>Do I need gym equipment?</summary>
+          <p>No. Most workouts include bodyweight alternatives you can do at home. A pair of dumbbells or resistance bands can add variety, but they aren't required to get started.</p>
+        </details>
+        <details class="reveal">
+          <summary>How often should I work out?</summary>
+          <p>For general health, aim for at least 150 minutes of moderate activity a week plus muscle-strengthening exercise on two or more days. Our weekly plans are built around this, with rest days included.</p>
+        </details>
+        <details class="reveal">
+          <summary>Do you offer nutrition guidance?</summary>
+          <p>We share general healthy-eating tips to support your training. For a personalised diet or a medical condition, please speak to a registered dietitian or doctor.</p>
+        </details>
+        <details class="reveal">
+          <summary>Is the fitness consultation free?</summary>
+          <p>Yes. Your first consultation and program recommendation are completely free, with no obligation to sign up.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="22be8 home"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><g fill="#0b0d0c" transform="rotate(-35 24 24)"><rect x="7" y="16" width="6" height="16" rx="2"/><rect x="13" y="19" width="4" height="10" rx="1.5"/><rect x="17" y="22.5" width="14" height="3" rx="1.5"/><rect x="31" y="19" width="4" height="10" rx="1.5"/><rect x="35" y="16" width="6" height="16" rx="2"/></g></svg></span><span class="logo-text">22be<span>8</span></span></a>
+          <p>Helping people move better, get stronger and feel great, with practical workouts for every body and every level.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html#programs">Programs</a></li>
+            <li><a href="index.html#plans">Weekly Plans</a></li>
+            <li><a href="index.html#bmi">BMI Calculator</a></li>
+            <li><a href="index.html#tips">Fitness Tips</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#enquiry">Start Training</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="disclaimer">
+        <strong>Disclaimer:</strong> The content on 22be8 is for general information and educational purposes only and is not medical advice. Consult a doctor or qualified healthcare professional before starting any new exercise or nutrition program, especially if you have a medical condition, injury or are pregnant. Stop exercising and seek medical help if you feel pain, dizziness or shortness of breath. Individual results vary. Images are for illustrative purposes only. 22be8 is not responsible for any injury, loss or damage arising from the use of this website or from third-party services linked to it.
+      </div>
+      <div class="footer-bottom">© <span id="year"></span> 22be8. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // Navbar background on scroll + back-to-top
+    const nav = document.getElementById('nav');
+    const toTop = document.getElementById('toTop');
+    const onScroll = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+      toTop.classList.toggle('show', window.scrollY > 600);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const setMenu = (open) => {
+      navLinks.classList.toggle('open', open);
+      menuToggle.classList.toggle('open', open);
+      menuToggle.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    menuToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+    // Scroll reveal
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // Contact form validation
+    const form = document.getElementById('contactForm');
+    const dateInput = document.getElementById('date');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+
+    const rules = {
+      name: v => v.trim().length >= 2,
+      cemail: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+      phone: v => v.trim() === '' || /^[+()\d\s-]{7,20}$/.test(v.trim()),
+      date: v => v === '' || v >= today,
+      message: v => v.trim().length >= 10,
+    };
+
+    const check = (id) => {
+      const el = document.getElementById(id);
+      const ok = id === 'consent' ? el.checked : rules[id](el.value);
+      el.closest('.field').classList.toggle('invalid', !ok);
+      return ok;
+    };
+
+    [...Object.keys(rules), 'consent'].forEach(id => {
+      const el = document.getElementById(id);
+      const evt = el.type === 'checkbox' ? 'change' : 'input';
+      el.addEventListener(evt, () => {
+        if (el.closest('.field').classList.contains('invalid')) check(id);
+      });
+      if (evt === 'input') el.addEventListener('blur', () => { if (el.value) check(id); });
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const ids = [...Object.keys(rules), 'consent'];
+      const results = ids.map(check);
+      if (results.every(Boolean)) {
+        // TODO: connect to a backend or form service (e.g. Formspree) to actually deliver messages.
+        document.getElementById('sentName').textContent = document.getElementById('name').value.trim().split(' ')[0];
+        form.classList.add('sent');
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        const firstBad = form.querySelector('.field.invalid input, .field.invalid textarea, .field.invalid select');
+        if (firstBad) firstBad.focus();
+      }
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

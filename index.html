@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>22be8 — Fitness &amp; Exercise</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="description" content="Workout programs, weekly training plans, a BMI calculator and practical exercise tips for every fitness level." />
+  <meta name="theme-color" content="#0b0d0c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="nav" id="nav">
+    <div class="container">
+      <a href="#home" class="logo" aria-label="22be8 home"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><g fill="#0b0d0c" transform="rotate(-35 24 24)"><rect x="7" y="16" width="6" height="16" rx="2"/><rect x="13" y="19" width="4" height="10" rx="1.5"/><rect x="17" y="22.5" width="14" height="3" rx="1.5"/><rect x="31" y="19" width="4" height="10" rx="1.5"/><rect x="35" y="16" width="6" height="16" rx="2"/></g></svg></span><span class="logo-text">22be<span>8</span></span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#plans">Weekly Plans</a></li>
+        <li><a href="#bmi">BMI</a></li>
+        <li><a href="#tips">Tips</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="contact.html#enquiry" class="btn btn-primary">Start Training</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow reveal">Train hard. Live strong.</span>
+        <h1 class="reveal">Build a <em>Stronger</em> You, One Rep at a Time</h1>
+        <p class="reveal">Workout programs, weekly training plans and practical exercise tips for every fitness level, whether you're picking up your first dumbbell or chasing a new personal best.</p>
+        <div class="hero-actions reveal">
+          <a href="#programs" class="btn btn-primary">Explore Programs →</a>
+          <a href="#plans" class="btn btn-ghost">View Weekly Plans</a>
+        </div>
+        <div class="hero-tags reveal">
+          <span>🏋️ Strength</span><span>🏃 Cardio</span><span>⚡ HIIT</span><span>🧘 Mobility</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true"></div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Strength</span><span>Cardio</span><span>HIIT</span><span>Yoga</span><span>Mobility</span><span>Nutrition</span><span>Recovery</span><span>Endurance</span>
+      <span>Strength</span><span>Cardio</span><span>HIIT</span><span>Yoga</span><span>Mobility</span><span>Nutrition</span><span>Recovery</span><span>Endurance</span>
+    </div>
+  </div>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat"><strong data-count="50">0</strong><span>Workout Programs</span></div>
+        <div class="stat"><strong data-count="25" data-suffix="K+">0</strong><span>Active Members</span></div>
+        <div class="stat"><strong data-count="300">0</strong><span>Exercise Guides</span></div>
+        <div class="stat"><strong data-count="4.9" data-decimal="1">0</strong><span>Average Rating</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROGRAMS ============ -->
+  <section id="programs">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Workout Programs</span>
+        <h2>Find the Right Program for You</h2>
+        <p>Structured programs built around proven training principles. Pick a style, follow the plan and watch your progress add up.</p>
+      </div>
+
+      <div class="filters reveal" role="group" aria-label="Filter programs">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="strength" aria-pressed="false">Strength</button>
+        <button class="filter-btn" data-filter="cardio" aria-pressed="false">Cardio</button>
+        <button class="filter-btn" data-filter="hiit" aria-pressed="false">HIIT</button>
+        <button class="filter-btn" data-filter="mobility" aria-pressed="false">Yoga &amp; Mobility</button>
+      </div>
+
+      <div class="prog-grid">
+        <article class="prog-card reveal" data-cat="strength" tabindex="0">
+          <div class="prog-img"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=80" alt="Man training with weights in a gym" loading="lazy" /><span class="prog-badge">Strength</span></div>
+          <div class="prog-body">
+            <h3>Full-Body Strength</h3>
+            <p>Squats, presses, rows and deadlift variations that build a solid foundation of strength.</p>
+            <div class="prog-meta"><span>⏱ 45 min</span><span>📶 Beginner</span><span>📅 3× / week</span></div>
+          </div>
+        </article>
+
+        <article class="prog-card reveal" data-cat="strength" tabindex="0">
+          <div class="prog-img"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80" alt="Athlete lifting a barbell" loading="lazy" /><span class="prog-badge">Strength</span></div>
+          <div class="prog-body">
+            <h3>Push · Pull · Legs</h3>
+            <p>A classic split that trains each muscle group twice a week for size and strength.</p>
+            <div class="prog-meta"><span>⏱ 60 min</span><span>📶 Intermediate</span><span>📅 6× / week</span></div>
+          </div>
+        </article>
+
+        <article class="prog-card reveal" data-cat="cardio" tabindex="0">
+          <div class="prog-img"><img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=900&q=80" alt="Runner on an open road" loading="lazy" /><span class="prog-badge">Cardio</span></div>
+          <div class="prog-body">
+            <h3>Couch to 5K</h3>
+            <p>Run-walk intervals that gradually build up to running 5 kilometres without stopping.</p>
+            <div class="prog-meta"><span>⏱ 30 min</span><span>📶 Beginner</span><span>📅 3× / week</span></div>
+          </div>
+        </article>
+
+        <article class="prog-card reveal" data-cat="hiit" tabindex="0">
+          <div class="prog-img"><img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=80" alt="Kettlebell workout" loading="lazy" /><span class="prog-badge">HIIT</span></div>
+          <div class="prog-body">
+            <h3>Fat-Burn HIIT</h3>
+            <p>Short bursts of intense work and brief rest to raise your heart rate and save time.</p>
+            <div class="prog-meta"><span>⏱ 25 min</span><span>📶 All levels</span><span>📅 3× / week</span></div>
+          </div>
+        </article>
+
+        <article class="prog-card reveal" data-cat="mobility" tabindex="0">
+          <div class="prog-img"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=80" alt="Woman holding a yoga pose" loading="lazy" /><span class="prog-badge">Yoga</span></div>
+          <div class="prog-body">
+            <h3>Daily Yoga Flow</h3>
+            <p>Flowing sequences that improve flexibility, balance and breathing while calming the mind.</p>
+            <div class="prog-meta"><span>⏱ 40 min</span><span>📶 All levels</span><span>📅 Daily</span></div>
+          </div>
+        </article>
+
+        <article class="prog-card reveal" data-cat="strength" tabindex="0">
+          <div class="prog-img"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80" alt="Woman doing a core exercise" loading="lazy" /><span class="prog-badge">Core</span></div>
+          <div class="prog-body">
+            <h3>Core &amp; Abs</h3>
+            <p>Planks, carries and anti-rotation drills for a stronger, more stable midsection.</p>
+            <div class="prog-meta"><span>⏱ 20 min</span><span>📶 All levels</span><span>📅 3× / week</span></div>
+          </div>
+        </article>
+
+        <article class="prog-card reveal" data-cat="cardio" tabindex="0">
+          <div class="prog-img"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=80" alt="Group of people running outdoors" loading="lazy" /><span class="prog-badge">Endurance</span></div>
+          <div class="prog-body">
+            <h3>Endurance Builder</h3>
+            <p>Steady runs, tempo sessions and intervals to boost stamina and heart health.</p>
+            <div class="prog-meta"><span>⏱ 40 min</span><span>📶 Intermediate</span><span>📅 4× / week</span></div>
+          </div>
+        </article>
+
+        <article class="prog-card reveal" data-cat="hiit" tabindex="0">
+          <div class="prog-img"><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=900&q=80" alt="Functional training equipment" loading="lazy" /><span class="prog-badge">Conditioning</span></div>
+          <div class="prog-body">
+            <h3>Metcon Circuits</h3>
+            <p>Full-body circuits mixing kettlebells, bodyweight moves and sprints for all-round fitness.</p>
+            <div class="prog-meta"><span>⏱ 35 min</span><span>📶 Advanced</span><span>📅 3× / week</span></div>
+          </div>
+        </article>
+
+        <article class="prog-card reveal" data-cat="mobility" tabindex="0">
+          <div class="prog-img"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80" alt="Group stretching class" loading="lazy" /><span class="prog-badge">Mobility</span></div>
+          <div class="prog-body">
+            <h3>Mobility &amp; Stretch</h3>
+            <p>Joint-friendly routines that ease stiffness, improve range of motion and aid recovery.</p>
+            <div class="prog-meta"><span>⏱ 20 min</span><span>📶 All levels</span><span>📅 Daily</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WEEKLY PLANS ============ -->
+  <section class="plans" id="plans">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Weekly Training Plans</span>
+        <h2>Your Week, Planned Out</h2>
+        <p>Choose your level to see a balanced week of training, with rest and recovery built in.</p>
+      </div>
+
+      <div class="plan-tabs reveal" role="tablist" aria-label="Training level">
+        <button class="plan-tab active" role="tab" aria-selected="true" aria-controls="p-beginner" id="t-beginner">Beginner <small>3 training days</small></button>
+        <button class="plan-tab" role="tab" aria-selected="false" aria-controls="p-intermediate" id="t-intermediate" tabindex="-1">Intermediate <small>5 training days</small></button>
+        <button class="plan-tab" role="tab" aria-selected="false" aria-controls="p-advanced" id="t-advanced" tabindex="-1">Advanced <small>6 training days</small></button>
+      </div>
+
+      <div class="plan-panel active" id="p-beginner" role="tabpanel" aria-labelledby="t-beginner">
+        <div class="day"><b>Mon</b><h4>Full-Body A</h4><span>40 min</span></div>
+        <div class="day rest"><b>Tue</b><h4>Active Rest</h4><span>20–30 min walk</span></div>
+        <div class="day"><b>Wed</b><h4>Full-Body B</h4><span>40 min</span></div>
+        <div class="day"><b>Thu</b><h4>Mobility</h4><span>20 min</span></div>
+        <div class="day"><b>Fri</b><h4>Full-Body A</h4><span>40 min</span></div>
+        <div class="day"><b>Sat</b><h4>Light Cardio</h4><span>30 min</span></div>
+        <div class="day rest"><b>Sun</b><h4>Rest</h4><span>Recover</span></div>
+      </div>
+
+      <div class="plan-panel" id="p-intermediate" role="tabpanel" aria-labelledby="t-intermediate" hidden>
+        <div class="day"><b>Mon</b><h4>Upper Body</h4><span>50 min</span></div>
+        <div class="day"><b>Tue</b><h4>Lower Body</h4><span>50 min</span></div>
+        <div class="day"><b>Wed</b><h4>Cardio Intervals</h4><span>30 min</span></div>
+        <div class="day"><b>Thu</b><h4>Upper Body</h4><span>50 min</span></div>
+        <div class="day"><b>Fri</b><h4>Lower Body</h4><span>50 min</span></div>
+        <div class="day"><b>Sat</b><h4>Yoga Flow</h4><span>40 min</span></div>
+        <div class="day rest"><b>Sun</b><h4>Rest</h4><span>Recover</span></div>
+      </div>
+
+      <div class="plan-panel" id="p-advanced" role="tabpanel" aria-labelledby="t-advanced" hidden>
+        <div class="day"><b>Mon</b><h4>Push</h4><span>60 min</span></div>
+        <div class="day"><b>Tue</b><h4>Pull</h4><span>60 min</span></div>
+        <div class="day"><b>Wed</b><h4>Legs</h4><span>70 min</span></div>
+        <div class="day"><b>Thu</b><h4>HIIT + Core</h4><span>35 min</span></div>
+        <div class="day"><b>Fri</b><h4>Upper Power</h4><span>60 min</span></div>
+        <div class="day"><b>Sat</b><h4>Lower + Conditioning</h4><span>70 min</span></div>
+        <div class="day rest"><b>Sun</b><h4>Rest</h4><span>Stretch &amp; recover</span></div>
+      </div>
+
+      <p class="plan-note">Start every session with a 5–10 minute warm-up. Adjust the plan to fit your schedule and recovery.</p>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED ============ -->
+  <section class="featured" id="featured">
+    <div class="container split">
+      <div class="split-media reveal">
+        <img class="main-img" src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=1000&q=80" alt="Athlete training in a gym" loading="lazy" />
+        <div class="float-card">
+          <div class="icon">🔥</div>
+          <div><strong>1,200+ Workouts</strong><span>Completed this week</span></div>
+        </div>
+      </div>
+      <div class="split-text reveal">
+        <span class="eyebrow">Why It Works</span>
+        <h2>Train Smarter, Not Just Harder</h2>
+        <p>Real progress comes from consistency, good technique and a plan that grows with you. Everything here is built around those three things.</p>
+        <ul class="feature-list">
+          <li>
+            <div class="ic">📈</div>
+            <div><h4>Progressive Plans</h4><p>Workouts that slowly increase in challenge so your body keeps adapting.</p></div>
+          </li>
+          <li>
+            <div class="ic">🎯</div>
+            <div><h4>Form-First Guides</h4><p>Clear cues for every exercise to help you move well and avoid injury.</p></div>
+          </li>
+          <li>
+            <div class="ic">🥗</div>
+            <div><h4>Nutrition Basics</h4><p>Simple, practical eating tips to fuel your training and recovery.</p></div>
+          </li>
+        </ul>
+        <a href="contact.html#enquiry" class="btn btn-primary">Get Started →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BMI CALCULATOR ============ -->
+  <section class="bmi" id="bmi">
+    <div class="container bmi-wrap">
+      <div class="bmi-info reveal">
+        <span class="eyebrow">Health Check</span>
+        <h2>Calculate Your BMI</h2>
+        <p>Body Mass Index (BMI) compares your weight to your height. It's a quick screening tool that can be a helpful starting point when setting fitness goals.</p>
+        <ul class="bmi-table">
+          <li><span><i style="background:#5bc0f8"></i>Underweight</span><span>Below 18.5</span></li>
+          <li><span><i style="background:var(--primary)"></i>Healthy weight</span><span>18.5 – 24.9</span></li>
+          <li><span><i style="background:#ffb347"></i>Overweight</span><span>25 – 29.9</span></li>
+          <li><span><i style="background:var(--accent)"></i>Obese</span><span>30 and above</span></li>
+        </ul>
+        <p class="bmi-small">BMI doesn't distinguish between muscle and fat and isn't designed for children, pregnant women or very muscular people. Speak to a healthcare professional for a full assessment.</p>
+      </div>
+
+      <form class="bmi-form reveal" id="bmiForm" novalidate>
+        <h3>BMI Calculator</h3>
+        <div class="bmi-fields">
+          <div class="field">
+            <label for="height">Height (cm)</label>
+            <input id="height" type="number" inputmode="decimal" min="100" max="250" placeholder="e.g. 175" />
+          </div>
+          <div class="field">
+            <label for="weight">Weight (kg)</label>
+            <input id="weight" type="number" inputmode="decimal" min="30" max="300" placeholder="e.g. 70" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Calculate BMI</button>
+        <div class="bmi-error" id="bmiError" aria-live="polite"></div>
+
+        <div class="bmi-result" id="bmiResult" aria-live="polite">
+          <div class="bmi-top"><span class="bmi-value" id="bmiValue">0</span><span class="bmi-cat" id="bmiCat"></span></div>
+          <div class="bmi-bar">
+            <div class="bmi-scale"><i></i><i></i><i></i><i></i></div>
+            <span class="bmi-marker" id="bmiMarker"></span>
+          </div>
+          <div class="bmi-legend"><span>15</span><span>18.5</span><span>25</span><span>30</span><span>35+</span></div>
+          <p class="bmi-text" id="bmiText"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ WHY US ============ -->
+  <section id="why">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Why Train With Us</span>
+        <h2>Fitness That Fits Your Life</h2>
+        <p>Everything you need to get moving and stay motivated, all in one place.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal"><div class="ic">🏅</div><h3>Expert Coaches</h3><p>Programs designed by qualified trainers with years of coaching experience.</p></div>
+        <div class="why-card reveal"><div class="ic">🏠</div><h3>Train Anywhere</h3><p>Gym, home or outdoors: every workout comes with equipment-free options.</p></div>
+        <div class="why-card reveal"><div class="ic">🔁</div><h3>Flexible Plans</h3><p>Short on time? Swap sessions, shorten workouts and still stay on track.</p></div>
+        <div class="why-card reveal"><div class="ic">🤝</div><h3>Supportive Community</h3><p>Share wins, ask questions and stay accountable with people like you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="steps-section" id="how">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">How It Works</span>
+        <h2>Get Fit in 4 Simple Steps</h2>
+        <p>From your first session to your next personal best, we keep it simple.</p>
+      </div>
+      <ol class="steps">
+        <li class="step reveal">
+          <div class="step-num">01</div>
+          <div class="step-ic">🎯</div>
+          <h3>Set Your Goal</h3>
+          <p>Lose weight, build muscle, run further or just feel better: tell us what matters to you.</p>
+        </li>
+        <li class="step reveal">
+          <div class="step-num">02</div>
+          <div class="step-ic">📋</div>
+          <h3>Get Your Plan</h3>
+          <p>Pick a program that matches your level, schedule and available equipment.</p>
+        </li>
+        <li class="step reveal">
+          <div class="step-num">03</div>
+          <div class="step-ic">💪</div>
+          <h3>Train Consistently</h3>
+          <p>Follow the sessions week by week. Showing up regularly beats going all-out once.</p>
+        </li>
+        <li class="step reveal">
+          <div class="step-num">04</div>
+          <div class="step-ic">📊</div>
+          <h3>Track Progress</h3>
+          <p>Log your workouts, celebrate milestones and level up when you're ready.</p>
+        </li>
+      </ol>
+      <div class="steps-cta reveal"><a href="contact.html#enquiry" class="btn btn-primary">Start Step One →</a></div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Gallery</span>
+        <h2>Every Rep Counts</h2>
+        <p>Strength, sweat and progress. Find the kind of movement you love.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <figure><img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1100&q=80" alt="Gym with rows of training equipment" loading="lazy" /><figcaption>Strength Floor</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80" alt="Person doing yoga outdoors" loading="lazy" /><figcaption>Outdoor Yoga</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?auto=format&fit=crop&w=600&q=80" alt="Runner tying shoes" loading="lazy" /><figcaption>Morning Runs</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=600&q=80" alt="Functional training session" loading="lazy" /><figcaption>Functional Training</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=600&q=80" alt="Free weights in a gym" loading="lazy" /><figcaption>Free Weights</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TIPS ============ -->
+  <section class="tips" id="tips">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Fitness Tips</span>
+        <h2>Small Habits, Big Results</h2>
+        <p>Simple, practical advice to help you train safely, recover well and stay consistent.</p>
+      </div>
+      <div class="tips-grid">
+        <article class="tip-card reveal">
+          <div class="tip-img"><img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=800&q=75" alt="Person stretching before a workout" loading="lazy" /><span class="tip-tag">Basics</span></div>
+          <div class="tip-body">
+            <h3>Always Warm Up First</h3>
+            <p>Spend 5–10 minutes on light cardio and dynamic movements like leg swings and arm circles. A good warm-up raises body temperature and prepares your joints for harder work.</p>
+            <span class="tip-meta">⏱ 2 min read</span>
+          </div>
+        </article>
+        <article class="tip-card reveal">
+          <div class="tip-img"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=75" alt="Healthy meal bowl" loading="lazy" /><span class="tip-tag">Nutrition</span></div>
+          <div class="tip-body">
+            <h3>Fuel Your Workouts</h3>
+            <p>Include a source of protein with each meal, eat plenty of vegetables and whole foods, and drink water throughout the day, especially before and after you train.</p>
+            <span class="tip-meta">⏱ 3 min read</span>
+          </div>
+        </article>
+        <article class="tip-card reveal">
+          <div class="tip-img"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=75" alt="Relaxing yoga pose" loading="lazy" /><span class="tip-tag">Recovery</span></div>
+          <div class="tip-body">
+            <h3>Rest Is Part of Training</h3>
+            <p>Muscles get stronger while you recover. Aim for 7–9 hours of sleep, take at least one rest day a week, and increase weights or distance gradually.</p>
+            <span class="tip-meta">⏱ 2 min read</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section id="reviews">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Success Stories</span>
+        <h2>What Our Members Say</h2>
+        <p>Real goals, steady effort and results to be proud of.</p>
+      </div>
+      <div class="testi-grid">
+        <div class="testi reveal">
+          <div class="stars">★★★★★</div>
+          <p>"The Full-Body Strength plan was exactly what I needed as a beginner. Three sessions a week felt doable, and I'm lifting more than I ever thought I could."</p>
+          <div class="person"><div class="avatar">RK</div><div><strong>Rahul K.</strong><span>Full-Body Strength</span></div></div>
+        </div>
+        <div class="testi reveal">
+          <div class="stars">★★★★★</div>
+          <p>"I couldn't run for two minutes when I started. Nine weeks later I finished my first 5K race. The run-walk approach really works."</p>
+          <div class="person"><div class="avatar">SL</div><div><strong>Sarah L.</strong><span>Couch to 5K</span></div></div>
+        </div>
+        <div class="testi reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Daily yoga and mobility sessions have made a huge difference to my back and posture after long days at a desk. I feel so much better."</p>
+          <div class="person"><div class="avatar">MJ</div><div><strong>Meera J.</strong><span>Daily Yoga Flow</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta" id="newsletter-cta">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>Ready to Start Your Fitness Journey?</h2>
+        <p>Subscribe for free weekly workouts, training tips and healthy recipes delivered to your inbox.</p>
+        <form class="newsletter" id="newsletter" novalidate>
+          <input type="email" id="email" placeholder="Enter your email address" aria-label="Email address" required />
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+        <div class="form-msg" id="formMsg" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="logo" aria-label="22be8 home"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><g fill="#0b0d0c" transform="rotate(-35 24 24)"><rect x="7" y="16" width="6" height="16" rx="2"/><rect x="13" y="19" width="4" height="10" rx="1.5"/><rect x="17" y="22.5" width="14" height="3" rx="1.5"/><rect x="31" y="19" width="4" height="10" rx="1.5"/><rect x="35" y="16" width="6" height="16" rx="2"/></g></svg></span><span class="logo-text">22be<span>8</span></span></a>
+          <p>Helping people move better, get stronger and feel great, with practical workouts for every body and every level.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#plans">Weekly Plans</a></li>
+            <li><a href="#bmi">BMI Calculator</a></li>
+            <li><a href="#tips">Fitness Tips</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html#faq">FAQ</a></li>
+            <li><a href="contact.html#enquiry">Start Training</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="disclaimer">
+        <strong>Disclaimer:</strong> The content on 22be8 is for general information and educational purposes only and is not medical advice. Consult a doctor or qualified healthcare professional before starting any new exercise or nutrition program, especially if you have a medical condition, injury or are pregnant. Stop exercising and seek medical help if you feel pain, dizziness or shortness of breath. Individual results vary. Images are for illustrative purposes only. 22be8 is not responsible for any injury, loss or damage arising from the use of this website or from third-party services linked to it.
+      </div>
+      <div class="footer-bottom">© <span id="year"></span> 22be8. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // Navbar background on scroll + back-to-top button
+    const nav = document.getElementById('nav');
+    const toTop = document.getElementById('toTop');
+    const onScroll = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+      toTop.classList.toggle('show', window.scrollY > 600);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const setMenu = (open) => {
+      navLinks.classList.toggle('open', open);
+      menuToggle.classList.toggle('open', open);
+      menuToggle.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    menuToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+    // Program filters
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.prog-card');
+    filterBtns.forEach(btn => btn.addEventListener('click', () => {
+      filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+      const f = btn.dataset.filter;
+      cards.forEach(card => {
+        const show = f === 'all' || card.dataset.cat === f;
+        card.classList.toggle('hide', !show);
+        if (show) card.classList.add('visible');
+      });
+    }));
+
+    // Weekly plan tabs
+    const planTabs = [...document.querySelectorAll('.plan-tab')];
+    const selectPlan = (tab) => {
+      planTabs.forEach(t => {
+        const on = t === tab;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', on);
+        t.tabIndex = on ? 0 : -1;
+        const panel = document.getElementById(t.getAttribute('aria-controls'));
+        panel.hidden = !on;
+        panel.classList.toggle('active', on);
+      });
+    };
+    planTabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => selectPlan(tab));
+      tab.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        const next = planTabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + planTabs.length) % planTabs.length];
+        selectPlan(next); next.focus();
+      });
+    });
+
+    // BMI calculator
+    document.getElementById('bmiForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const h = parseFloat(document.getElementById('height').value);
+      const w = parseFloat(document.getElementById('weight').value);
+      const error = document.getElementById('bmiError');
+      const result = document.getElementById('bmiResult');
+      if (!(h >= 100 && h <= 250) || !(w >= 30 && w <= 300)) {
+        error.textContent = 'Please enter a height between 100–250 cm and a weight between 30–300 kg.';
+        result.classList.remove('show');
+        return;
+      }
+      error.textContent = '';
+      const m = h / 100;
+      const bmi = w / (m * m);
+      const low = (18.5 * m * m).toFixed(1);
+      const high = (24.9 * m * m).toFixed(1);
+      let cat, text;
+      if (bmi < 18.5) {
+        cat = 'Underweight';
+        text = 'Your BMI is below the healthy range. Strength training and a balanced, nutrient-rich diet can help you build healthy weight.';
+      } else if (bmi < 25) {
+        cat = 'Healthy weight';
+        text = 'Great work! Your BMI is in the healthy range. Keep it up with regular activity and balanced eating.';
+      } else if (bmi < 30) {
+        cat = 'Overweight';
+        text = 'Your BMI is above the healthy range. A mix of cardio, strength training and mindful eating can help you move toward your goal.';
+      } else {
+        cat = 'Obese';
+        text = 'Your BMI is in the obese range. Consider speaking with a healthcare professional and starting with gentle, regular activity.';
+      }
+      document.getElementById('bmiValue').textContent = bmi.toFixed(1);
+      document.getElementById('bmiCat').textContent = cat;
+      document.getElementById('bmiText').textContent = `${text} For your height, a BMI-based healthy weight range is roughly ${low}–${high} kg.`;
+      const pct = Math.min(Math.max((bmi - 15) / 20, 0), 1) * 100;
+      document.getElementById('bmiMarker').style.left = pct + '%';
+      result.classList.add('show');
+    });
+
+    // Scroll reveal
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // Animated counters
+    const countObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseFloat(el.dataset.count);
+        const decimals = parseInt(el.dataset.decimal || 0, 10);
+        const suffix = el.dataset.suffix || (decimals ? '' : '+');
+        const start = performance.now(), dur = 1800;
+        const tick = (now) => {
+          const p = Math.min((now - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = (target * eased).toFixed(decimals) + (p === 1 ? suffix : '');
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        countObs.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+    // Newsletter form
+    document.getElementById('newsletter').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email');
+      const msg = document.getElementById('formMsg');
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        msg.textContent = "💪 You're in! Check your inbox for your first workout.";
+        email.value = '';
+      } else {
+        msg.textContent = 'Please enter a valid email address.';
+      }
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
